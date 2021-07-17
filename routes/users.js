@@ -22,7 +22,7 @@ router.get("/", (req, res) => {
 
 router.get("/:id", async (req, res) => {
   try {
-    const user = await userSchema.findOne({ id: req.params.id });
+    const user = await userSchema.findOne({ _id: req.params.id });
     res.send(user);
   } catch {
     res.status(404);
