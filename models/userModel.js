@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const userSchema = new Schema(
+const userSchema = Schema(
   {
     //_id: ObjectId,
     name: {
@@ -11,8 +11,14 @@ const userSchema = new Schema(
     userName: String,
     email: String,
     avatarURL: String,
+    tweets: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Tweet",
+      },
+    ],
   },
-  { timestamp: true }
+  { timestamps: true }
 );
 
 module.exports = mongoose.model("User", userSchema);

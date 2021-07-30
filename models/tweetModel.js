@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const tweetSchema = new Schema(
+const tweetSchema = Schema(
   {
     tweet: String,
     userID: {
@@ -9,7 +9,7 @@ const tweetSchema = new Schema(
       ref: "User",
     },
   },
-  { timestamp: true }
+  { timestamps: true }
   // comments: [
   //   {
   //     text: String,
